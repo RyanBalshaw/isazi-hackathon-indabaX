@@ -1,5 +1,33 @@
 ## Isazi IndabaX 2024 Hackathon Challenge
 
+### Getting started
+
+Assuming you are on the root of the repo, please execute the following commands:
+```shell
+pyenv local 3.9.12 # Choose suitable python3.9 version
+python -m venv ./hackathon-venv
+source ./hackathon-venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+### Summary of this repo
+
+I attempted 5 simple approaches for this problem. The list is as follows:
+1. A 'mildly' tweaked [Gluonts](https://ts.gluon.ai/stable/) model. 
+2. A sinusoidal regression model defined for each product code. The model formulation is non-linear with respect to the parameters.
+  - What I really like about this is that the yearly (assumed) periodicity in the data is captured by the model.
+3. A sinusoidal regression model defined for each product category applied to the volume logarithm.
+  - I observed that the total volume for the is approximately log-Gaussian distributed. This observation actually spurred the sinusoidal regression idea, because standard linear regression models are conventionally formulated using a parametrised Gaussian distribution. So if the time-invariant data looks Gaussian (or the log there-of), some sort of probabilistic model with a Gaussian assumption (phew) is not a bad idea.
+4. A simple ARIMA model for each product code.
+5. An ARIMA model with exogeneous variables (the other columns in the data) for each product code.
+
+Let's see how far I get.
+
+To Isazi, thank you for facilitating this hackathon. I **really** want that Nvidia 4090 GPU.
+
+### Running the models
+The hackathon organisers provided notebooks, so each notebook is an implementation of different models. I have stripped the information not related to the project and preserved the information that is useful to completing the model.
+
 ### Problem Domain
 
 In the fast-paced retail sector, understanding and predicting sales volumes is crucial for effective inventory management, pricing strategy, and promotional planning. Accurately forecasting sales not only optimizes operational efficiencies but also enhances customer satisfaction by ensuring product availability and competitive pricing. 
