@@ -1,0 +1,9 @@
+pandas
+matplotlib
+seaborn
+scikit-learn
+scipy
+scikit-optimize
+nbstripout
+gluonts[mxnet, torch]
+nbconvert
