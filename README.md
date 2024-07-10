@@ -13,17 +13,21 @@ python -m pip install -r requirements.txt
 ### Summary of this repo
 
 I attempted 5 simple approaches for this problem. The list is as follows:
-1. A 'mildly' tweaked [Gluonts](https://ts.gluon.ai/stable/) model. 
-2. A sinusoidal regression model defined for each product code. The model formulation is non-linear with respect to the parameters.
-  - What I really like about this is that the yearly (assumed) periodicity in the data is captured by the model.
-3. A sinusoidal regression model defined for each product category applied to the volume logarithm.
-  - I observed that the total volume for the is approximately log-Gaussian distributed. This observation actually spurred the sinusoidal regression idea, because standard linear regression models are conventionally formulated using a parametrised Gaussian distribution. So if the time-invariant data looks Gaussian (or the log there-of), some sort of probabilistic model with a Gaussian assumption (phew) is not a bad idea.
-4. A simple ARIMA model for each product code.
-5. An ARIMA model with exogeneous variables (the other columns in the data) for each product code.
+1. A mildly tweaked [Gluonts](https://ts.gluon.ai/stable/) `SimpleFeedForwardEstimator` model.
+   - I increased the number and size of hidden dimensions, and increased the number of epochs. Really simple changes.
+2. A mildly tweaked [Gluonts](https://ts.gluon.ai/stable/) `DeepAREstimator` model.
+   - I increased the number and size of hidden dimensions, and increased the number of epochs. Really simple changes.
+3. A sinusoidal regression model defined for each product code. The model formulation is non-linear with respect to the parameters.
+   - What I really like about this is that the yearly (assumed) periodicity in the data is captured by the model.
+4. A sinusoidal regression model defined for each product category applied to the volume logarithm.
+   - I observed that the total volume for the is approximately log-Gaussian distributed. This observation actually spurred the sinusoidal regression idea, because standard linear regression models are conventionally formulated using a parametrised Gaussian distribution. So if the time-invariant data looks Gaussian (or the log there-of), some sort of probabilistic model with a Gaussian assumption (phew) is not a bad idea.
+5. A simple ARIMA model for each product code.
+6. **(NOT DONE)** An ARIMA model with exogeneous variables (the other columns in the data) for each product code.
 
-Let's see how far I get.
+Let's see how far I get. The submission results are stored in the `submission_results` directory.
 
-To Isazi, thank you for facilitating this hackathon. I **really** want that Nvidia 4090 GPU.
+> To Isazi, thank you for facilitating this hackathon (I **really** want that Nvidia 4090 GPU).
+
 
 ### Running the models
 The hackathon organisers provided notebooks, so each notebook is an implementation of different models. I have stripped the information not related to the project and preserved the information that is useful to completing the model.
