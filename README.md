@@ -28,6 +28,9 @@ Let's see how far I get. The submission results are stored in the `submission_re
 
 > To Isazi, thank you for facilitating this hackathon (I **really** want that Nvidia 4090 GPU).
 
+Final notes:
+- The sinusoidal models performed poorly. 
+- The [Gluonts](https://ts.gluon.ai/stable/) models worked best.
 
 ### Running the models
 The hackathon organisers provided notebooks, so each notebook is an implementation of different models. I have stripped the information not related to the project and preserved the information that is useful to completing the model.
