@@ -31,6 +31,8 @@ Let's see how far I get. The submission results are stored in the `submission_re
 Final notes:
 - The sinusoidal models performed poorly. 
 - The [Gluonts](https://ts.gluon.ai/stable/) models worked best.
+- The other features available for this problem are important, I think they offer good insight into the `volume` featurs.
+- Tweaking which features are used in the `DeepAREstimator` model proved to give the best jump in performance.
 
 ### Running the models
 The hackathon organisers provided notebooks, so each notebook is an implementation of different models. I have stripped the information not related to the project and preserved the information that is useful to completing the model.
